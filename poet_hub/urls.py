@@ -22,7 +22,8 @@ from users import views as user_views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('godmode/', admin.site.urls),
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot'), name='admin'),
     path('', include('poem.urls')),
     path('register/', user_views.register, name='register'),
     path('profile/', user_views.profile, name='profile'),

@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import django_heroku
+from django.contrib import admin
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,6 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '=zp%ps%%ke4lgkj5)r6l*n$c@u)ob9z_f(h^8jcl1q8bkvlc5k'
 #SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'crispy_forms',
     'storages',
+    'admin_honeypot',
 ]
 
 MIDDLEWARE = [
@@ -74,8 +79,12 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'poet_hub.wsgi.application'
 
+TEMPLATE_DIRS = ( 
+    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "static", "templates"),
+    )
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -112,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
